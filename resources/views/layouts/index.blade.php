@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
         <meta charset="UTF-8">
         <meta name="description" content="">
@@ -81,7 +80,7 @@
                         <nav class="classy-navbar justify-content-between" id="robertoNav">
 
                             <!-- Logo -->
-                            <a class="nav-brand" href="index.html"><img src="./img/core-img/logo.png" alt=""></a>
+                            <a class="nav-brand" href="{{route('couverture')}}"><img src="{{asset('./img/core-img/logo.png')}}" alt=""></a>
 
                             <!-- Navbar Toggler -->
                             <div class="classy-navbar-toggler">
@@ -97,19 +96,20 @@
                                 <!-- Nav Start -->
                                 <div class="classynav">
                                     <ul id="nav">
-                                        <li class="active"><a href="./index.html">Accueil</a></li>
-                                        <li><a href="./room.html">Voiture</a></li>
-                                        <li><a href="./about.html">Contact</a></li>
+                                        <li class="active"><a href="{{route('home')}}">Accueil</a></li>
+                                        <li><a href="{{route('voiture.index')}}">Voiture</a></li>
+                                        <li><a href="{{route('contact')}}">Contact</a></li>
                                         <li><a href="#">Categorie de voiture</a>
                                             <ul class="dropdown">
-                                                <li><a href="./index.html">- type 1</a></li>
-                                                <li><a href="./room.html">- type 2</a></li>
-                                                <li><a href="./single-room.html">- type 3</a></li>
+                                                @foreach (AllCategorie() as $categorie)
+                                                    <li><a href="{{route('recherche.categorie',['recherche' => $categorie->name])}}">{{$categorie->name}}</a></li>
+                                                @endforeach
+                                                {{--<li><a href="./room.html">- type 2</a></li>
                                                 <li><a href="./about.html">- type 4</a></li>
                                                 <li><a href="./blog.html">- type 5</a></li>
                                                 <li><a href="./single-blog.html">- type 6</a></li>
                                                 <li><a href="./contact.html">- type 7</a></li>
-                                                {{--<li><a href="#">- Dropdown</a>
+                                                <li><a href="#">- Dropdown</a>
                                                     <ul class="dropdown">
                                                         <li><a href="#">- Dropdown Item</a></li>
                                                         <li><a href="#">- Dropdown Item</a></li>
@@ -157,7 +157,7 @@
                         <div class="col-12 col-sm-6 col-lg-3">
                             <div class="single-footer-widget mb-80">
                                 <!-- Footer Logo -->
-                                <a href="#" class="footer-logo"><img src="img/core-img/logo2.png" alt=""></a>
+                                <a href="#" class="footer-logo"><img src="{{asset('./img/core-img/logo.png')}}" alt=""></a>
 
                                 <h4>+12 345-678-9999</h4>
                                 <span>Info.colorlib@gmail.com</span>

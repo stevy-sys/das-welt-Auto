@@ -1,6 +1,7 @@
 @extends('layouts.index')
 
 @section('content')
+    
     <!-- Welcome Area Start -->
     <section class="welcome-area">
         <div class="welcome-slides owl-carousel">

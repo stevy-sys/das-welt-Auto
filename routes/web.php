@@ -13,8 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'AccueilController@index');
+Route::get('/', 'CouvertureController@index')->name('couverture');
+Route::get('/accueil', 'AccueilController@index')->name('home');
+Route::get('/recherche/{recherche}', 'RechercheController@rechercheCategorie')->name('recherche.categorie');
+Route::resource('voiture', 'VoitureController');
+Route::get('/contact', 'ContactController@index')->name('contact');
+//Route::ressources('/categorie', 'CategorieController');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('dashboard');
