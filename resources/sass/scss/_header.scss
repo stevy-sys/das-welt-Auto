@@ -67,7 +67,7 @@
         @include display-flex(flex);
         @include align-items-center;
 
-        > a {
+        >a {
             color: $white;
             font-size: 14px;
             font-weight: 400;
@@ -247,9 +247,9 @@
     }
 }
 
-.classynav ul li.has-down > a::after,
-.classynav ul li.has-down.active > a::after,
-.classynav ul li.megamenu-item > a::after {
+.classynav ul li.has-down>a::after,
+.classynav ul li.has-down.active>a::after,
+.classynav ul li.megamenu-item>a::after {
     color: $heading;
 }
 
@@ -324,4 +324,9 @@
             color: $hover;
         }
     }
+}
+
+#nav ul li.megamenu-item>a:after,
+#nav ul li.has-down>a:after {
+    content: "";
 }

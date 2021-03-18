@@ -34,39 +34,37 @@
         <!-- Header Area Start -->
         <header class="header-area">
             <!-- Search Form -->
-            <div class="search-form d-flex align-items-center">
-                <div class="container">
-                    <form action="index.html" method="get">
-                        <input type="search" name="search-form-input" id="searchFormInput" placeholder="Type your keyword ...">
-                        <button type="submit"><i class="icon_search"></i></button>
-                    </form>
+                <div class="search-form d-flex align-items-center">
+                    <div class="container">
+                        <form action="index.html" method="get">
+                            <input class="mr-5" type="search" name="search-form-input" id="searchFormInput" placeholder="Type your keyword ...">
+                            <button class="ml-5" type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
                 </div>
-            </div>
-
+                
             <!-- Top Header Area Start -->
             <div class="top-header-area">
                 <div class="container">
                     <div class="row">
-
-                        <div class="col-6">
+                        <div class="col-8">
                             <div class="top-header-content">
-                                <a href="#"><i class="icon_phone"></i> <span>(123) 456-789-1230</span></a>
-                                <a href="#"><i class="icon_mail"></i> <span>info.colorlib@gmail.com</span></a>
+                                <a href="#"><i class="fa fa-phone"></i> <span>(123) 456-789-1230</span></a>
+                                <a href="#"><i class="fab fa-mailchimp"></i> <span>info.colorlib@gmail.com</span></a>
                             </div>
                         </div>
 
-                        <div class="col-6">
+                        <div class="col-4">
                             <div class="top-header-content">
                                 <!-- Top Social Area -->
                                 <div class="top-social-area ml-auto">
-                                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                    <a href="#"><i class="fa fa-tripadvisor" aria-hidden="true"></i></a>
-                                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fab fa-tripadvisor" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -94,46 +92,42 @@
                                     <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
                                 </div>
                                 <!-- Nav Start -->
-                                <div class="classynav">
-                                    <ul id="nav">
-                                        <li class="active"><a href="{{route('home')}}">Accueil</a></li>
-                                        <li><a href="{{route('voiture.index')}}">Voiture</a></li>
-                                        <li><a href="{{route('contact')}}">Contact</a></li>
-                                        <li><a href="#">Categorie de voiture</a>
+                                <div id="nav" class="classynav">
+                                    <ul>
+                                        <li class="active"><a href="{{route('home')}}"> <i class="fa fa-home"/></i> Accueil</a></li>
+                                        <li><a href="{{route('voiture.index')}}"><i class="fa fa-car"/></i> Voiture</a></li>
+                                        <li><a href="{{route('contact')}}"><i class="fa fa-phone"/></i> Contact</a></li>
+                                        <li><a href="#"><i class="fa fa-list"/></i> Categorie de voiture <i class="fa fa-angle-down"></i></a>
                                             <ul class="dropdown">
                                                 @foreach (AllCategorie() as $categorie)
                                                     <li><a href="{{route('recherche.categorie',['recherche' => $categorie->name])}}">{{$categorie->name}}</a></li>
                                                 @endforeach
-                                                {{--<li><a href="./room.html">- type 2</a></li>
-                                                <li><a href="./about.html">- type 4</a></li>
-                                                <li><a href="./blog.html">- type 5</a></li>
-                                                <li><a href="./single-blog.html">- type 6</a></li>
-                                                <li><a href="./contact.html">- type 7</a></li>
-                                                <li><a href="#">- Dropdown</a>
-                                                    <ul class="dropdown">
-                                                        <li><a href="#">- Dropdown Item</a></li>
-                                                        <li><a href="#">- Dropdown Item</a></li>
-                                                        <li><a href="#">- Dropdown Item</a></li>
-                                                        <li><a href="#">- Dropdown Item</a></li>
-                                                    </ul>
-                                                </li>--}}
                                             </ul>
                                         </li>
-                                        {{--
-                                            <li><a href="./blog.html">News</a></li>
-                                            <li><a href="./contact.html">Contact</a></li>
-                                        --}}
+
+                                        @guest
+                                            <li><a href="{{ route('login') }}">Connexion</a></li>
+                                            <li><a href="{{ route('register') }}">Inscription</a></li>
+                                        @else
+                                            <li> <a href="#"> <i class="fa fa-user"></i> {{ Auth::user()->name }}</a> 
+                                                <ul class="dropdown">
+                                                    <li>
+                                                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                            {{ __('Logout') }}
+                                                        </a>
+                                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                            @csrf
+                                                        </form>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        @endguest
+                                        <li>
+                                            <div class="search-btn ml-4">
+                                                <i class="fa fa-search" aria-hidden="true"></i>
+                                            </div>
+                                        </li>
                                     </ul>
-
-                                    <!-- Search -->
-                                    <div class="search-btn ml-4">
-                                        <i class="fa fa-search" aria-hidden="true"></i>
-                                    </div>
-
-                                    <!-- Book Now -->
-                                    <div class="book-now-btn ml-3 ml-lg-5">
-                                        <a href="#">Book Now <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-                                    </div>
                                 </div>
                                 <!-- Nav End -->
                             </div>
@@ -148,7 +142,7 @@
         
 
         <!-- Footer Area Start -->
-        <footer class="footer-area section-padding-80-0">
+        <footer class="footer-area mt-5 section-padding-80-0">
             <!-- Main Footer Area -->
             <div class="main-footer-area">
                 <div class="container">
@@ -227,17 +221,17 @@
                             <!-- Copywrite Text -->
                             <div class="copywrite-text">
                                 <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This apps is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Stevy</a>
                                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                             </div>
                         </div>
                         <div class="col-12 col-md-4">
                             <!-- Social Info -->
                             <div class="social-info">
-                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fab fa-tripadvisor" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>

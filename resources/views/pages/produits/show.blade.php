@@ -139,7 +139,7 @@
                                 <h6>Annee: <span>{{$voiture->annee}}</span></h6>
                                 <h6>Moteur: <span>{{$voiture->moteur}}</span></h6>
                             </div>
-                                <a href="" class="btn view-detail-btn">contactez-nous  <i class="fa fa-phone" aria-hidden="true"></i></a>
+                                <a href="" class="btn btn-primary">contactez-nous  <i class="fa fa-phone" aria-hidden="true"></i></a>
                             </div>
                         </div>
                         <!-- Room Features -->
@@ -150,6 +150,7 @@
                             <h6>Services: <span>Wifi, television ...</span></h6>
                         </div>--}}
                     </div>
+                    <div class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam quia laboriosam consectetur cumque aliquam vitae recusandae dignissimos quae dolorem ullam ex velit atque a, debitis, voluptas impedit iure eos adipisci necessitatibus rem maxime? Ipsum sequi, dicta dolorem doloribus saepe quia sunt qui ducimus cupiditate deserunt? Ipsa, recusandae. Perferendis excepturi quae iste iusto, officia maxime at vitae totam beatae tempora sapiente voluptate animi, iure ipsam deleniti molestias, odio culpa praesentium alias repellat! Quidem neque maxime eligendi dolore dignissimos. Vel a rem quae esse ullam nihil qui delectus. Nostrum amet facilis nesciunt qui blanditiis fugit dignissimos labore. Corrupti eos ad illo aut quos, placeat suscipit sunt voluptatum pariatur voluptatem nostrum dicta molestiae temporibus totam in ab iusto aspernatur quam fugiat praesentium omnis asperiores reprehenderit laudantium delectus? Facere nobis corporis eaque tempore, excepturi iure possimus at deleniti esse rem. Sed officia velit voluptate temporibus neque nulla et excepturi animi nam accusantium beatae consectetur ad consequatur esse dolore sit repudiandae eaque incidunt nemo alias facilis officiis, aperiam ullam blanditiis! Voluptates necessitatibus voluptate quas excepturi cumque temporibus voluptatum quidem. Similique numquam illo facere sint cupiditate, unde modi. Dolorem itaque quidem autem in minima doloremque exercitationem sed? Asperiores sequi, assumenda sunt molestiae libero quibusdam corporis sed!</div> 
                 </div>
             </div>
         </div>
