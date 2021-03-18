@@ -15,4 +15,9 @@ class Voiture extends Model
     {
         return $this->hasMany('App\Http\Models\PhotoVoiture');
     }
+
+    public function commentaire()
+    {
+        return $this->hasMany('App\Http\Models\Commentaire');
+    }
 }

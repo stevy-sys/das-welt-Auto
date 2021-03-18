@@ -112,6 +112,7 @@
                                             <li> <a href="#"> <i class="fa fa-user"></i> {{ Auth::user()->name }}</a> 
                                                 <ul class="dropdown">
                                                     <li>
+                                                        <a href="{{route('dashboard')}}">Tableau de bord</a>
                                                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                                             {{ __('Logout') }}
                                                         </a>

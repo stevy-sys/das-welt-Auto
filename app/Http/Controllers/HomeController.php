@@ -25,4 +25,19 @@ class HomeController extends Controller
     {
         return view('welcome');
     }
+
+    public function message()
+    {
+        return view('auth.message');
+    }
+
+    public function favoris()
+    {
+        return view('auth.favoris');
+    }
+
+    public function commentaire()
+    {
+        return view('auth.commentaire');
+    }
 }

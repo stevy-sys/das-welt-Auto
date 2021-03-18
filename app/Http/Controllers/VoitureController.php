@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Models\Voiture;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class VoitureController extends Controller
 {
@@ -29,14 +30,14 @@ class VoitureController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Creation de commentaire.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**

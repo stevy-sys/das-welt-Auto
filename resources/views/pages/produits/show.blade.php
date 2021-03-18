@@ -50,7 +50,20 @@
                     <!-- Room Review -->
                     <div class="room-review-area mb-100">
                         <h4>Room Review</h4>
-
+                        @auth
+                            <form method="get" action="{{--route('commentaire.store',['id_voiture' => $voiture->id])--}}" class="mb-5">
+                                @csrf
+                                <div class="mb-3">
+                                    <label for="exampleFormControlTextarea1" class="form-label">Votre commentaire</label>
+                                    <textarea name="content" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                </div>
+                                <button class="btn btn-success" type="submit">Commentaire</button>
+                            </form>
+                        @else
+                            <h3>Connecter vous pour commentez</h3>
+                            <a class="btn btn-primary" href="{{route('login')}}">Connexion</a>
+                            <br><br>
+                        @endauth
                         <!-- Single Review Area -->
                         <div class="single-room-review-area d-flex align-items-center">
                             <div class="reviwer-thumbnail">
@@ -139,7 +152,7 @@
                                 <h6>Annee: <span>{{$voiture->annee}}</span></h6>
                                 <h6>Moteur: <span>{{$voiture->moteur}}</span></h6>
                             </div>
-                                <a href="" class="btn btn-primary">contactez-nous  <i class="fa fa-phone" aria-hidden="true"></i></a>
+                                <a href="{{ route('contact') }}" class="btn btn-primary">contactez-nous  <i class="fa fa-phone" aria-hidden="true"></i></a>
                             </div>
                         </div>
                         <!-- Room Features -->
