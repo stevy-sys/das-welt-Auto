@@ -63,13 +63,6 @@
                                             <span>{{ $commentaire->created_at->format('d/m/Y H:i') }}</span>
                                             <h6>{{$commentaire->user->name}}</h6>
                                         </div>
-                                        <div class="reviwer-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
                                     </div>
                                     <p>{{$commentaire->content}}</p>
                                 </div>
