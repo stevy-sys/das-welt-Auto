@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Voiture extends Model
 {
+    protected $guarded = [''];
     public function categorie()
     {
         return $this->belongsTo('App\Http\Models\Categorie');

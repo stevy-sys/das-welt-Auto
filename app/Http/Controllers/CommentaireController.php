@@ -3,25 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Models\Commentaire;
 use Illuminate\Support\Facades\Auth;
 
 class CommentaireController extends Controller
 {
     public function store(Request $request)
     {
-       //dd(Auth::user()->id);
-       //dd($request->content);
-       //dd($request->id_voiture);
-       /*$id_voiture = intval($request->id_voiture);
-
+       $voiture_id = intval($request->voiture_id);
        $data = $request->validate([
-            'id_voiture' => "required",
+            'voiture_id' => "required",
             'content' => "required",
-            
         ]);
 
-        dd('ok');
-        $commentaire = Education::create($data);
-        return redirect()->route('education.index');*/
+        $data['user_id'] = Auth::user()->id ;
+        $data['voiture_id'] = $voiture_id ;
+        
+        Commentaire::create($data);
+        return redirect()->route('voiture.show',['voiture' => $data['voiture_id']]);
     }
 }
