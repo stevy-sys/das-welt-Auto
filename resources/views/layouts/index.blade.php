@@ -10,21 +10,21 @@
         <title>Roberto - Hotel &amp; Resort HTML Template</title>
 
         <!-- Favicon -->
-        <link rel="icon" href="{{asset('img/core-img/favicon.png')}}">
+        <link rel="icon" href="{{ environement() ? asset('img/core-img/favicon.png') : secure_asset('img/core-img/favicon.png') }}">
 
         <!-- Stylesheet -->
-        <link rel="stylesheet" href="{{asset('css/app.css')}}">
+        <link rel="stylesheet" href="{{ environement() ? asset('css/app.css') : secure_asset('css/app.css')}}">
         
-        <link rel="stylesheet" href="{{asset('module/default-assets/classy-nav.css')}}">
-        <link rel="stylesheet" href="{{asset('module/style.css')}}">
-        <link rel="stylesheet" href="{{asset('module/animate.css')}}">
-        <link rel="stylesheet" href="{{asset('module/bootstrap-datepicker.min.css')}}">
-        <link rel="stylesheet" href="{{asset('module/bootstrap.min.css')}}">
-        <link rel="stylesheet" href="{{asset('module/all.css')}}">
-        <link rel="stylesheet" href="{{asset('module/jquery-ui.min.css')}}">
-        <link rel="stylesheet" href="{{asset('module/magnific-popup.css')}}">
-        <link rel="stylesheet" href="{{asset('module/nice-select.css')}}">
-        <link rel="stylesheet" href="{{asset('module/owl.carousel.min.css')}}">
+        <link rel="stylesheet" href="{{ environement() ?  asset('module/default-assets/classy-nav.css') : secure_asset('module/default-assets/classy-nav.css') }}">
+        <link rel="stylesheet" href="{{ environement() ?  asset('module/style.css') : secure_asset('module/style.css')}}">
+        <link rel="stylesheet" href="{{ environement() ?  asset('module/animate.css') : secure_asset('module/animate.css')}}">
+        <link rel="stylesheet" href="{{ environement() ?  asset('module/bootstrap-datepicker.min.css') : secure_asset('module/bootstrap-datepicker.min.css')}}">
+        <link rel="stylesheet" href="{{ environement() ?  asset('module/bootstrap.min.css') : secure_asset('module/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{ environement() ?  asset('module/all.css') : secure_asset('module/all.css')}}">
+        <link rel="stylesheet" href="{{ environement() ?  asset('module/jquery-ui.min.css') : secure_asset('module/jquery-ui.min.css')}}">
+        <link rel="stylesheet" href="{{ environement() ?  asset('module/magnific-popup.css') : secure_asset('module/magnific-popup.css')}}">
+        <link rel="stylesheet" href="{{ environement() ?  asset('module/nice-select.css') : secure_asset('module/nice-select.css')}}">
+        <link rel="stylesheet" href="{{ environement() ?  asset('module/owl.carousel.min.css') : secure_asset('module/owl.carousel.min.css')}}">
         
         <script src="{{asset('js/app.js')}}"></script>
     </head>
@@ -240,7 +240,7 @@
             </div>
         </footer>
         <!-- Footer Area End -->
-        <script src="{{asset('js/app.js')}}"></script>
+        <script src="{{ environement() ? asset('js/app.js') : secure_asset('js/app.js')}}"></script>
     </body>
 
 </html>

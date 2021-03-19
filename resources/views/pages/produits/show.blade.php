@@ -14,7 +14,7 @@
                                 <div class="carousel-inner">
                                     @foreach ($voiture->photoVoitures as $photos)
                                         <div class="carousel-item {{($photos->id == 1) ? 'active' : ''}}">
-                                            <img src="{{asset($photos->photo)}}" class="d-block w-100" alt="">
+                                            <img src="{{ environement() ? asset($photos->photo) : secure_asset($photos->photo)}}" class="d-block w-100" alt="">
                                         </div>
                                     @endforeach
                                 </div>
@@ -22,7 +22,7 @@
                                 <ol class="carousel-indicators">
                                     @foreach ($voiture->photoVoitures as $photos)
                                         <li data-target="#room-thumbnail--slide" data-slide-to="{{$photos->id - 1}}" class="{{($photos->id == 1) ? 'active' : ''}}">
-                                            <img src="{{asset($photos->photo)}}" class="d-block w-100" alt="">
+                                            <img src="{{ environement() ? asset($photos->photo) : secure_asset($photos->photo)}}" class="d-block w-100" alt="">
                                         </li>
                                     @endforeach
                                 </ol>
@@ -67,7 +67,7 @@
                         <!-- Single Review Area -->
                         <div class="single-room-review-area d-flex align-items-center">
                             <div class="reviwer-thumbnail">
-                                <img src="{{asset('img/bg-img/53.jpg')}}" alt="">
+                                <img src="{{ environement() ? asset('img/bg-img/53.jpg') : secure_asset('img/bg-img/53.jpg')}}" alt="">
                             </div>
                             <div class="reviwer-content">
                                 <div class="reviwer-title-rating d-flex align-items-center justify-content-between">
@@ -90,7 +90,7 @@
                         <!-- Single Review Area -->
                         <div class="single-room-review-area d-flex align-items-center">
                             <div class="reviwer-thumbnail">
-                                <img src="{{asset('img/bg-img/54.jpg')}}" alt="">
+                                <img src="{{environement() ? asset('img/bg-img/54.jpg') : secure_asset('img/bg-img/54.jpg')}}" alt="">
                             </div>
                             <div class="reviwer-content">
                                 <div class="reviwer-title-rating d-flex align-items-center justify-content-between">
@@ -113,7 +113,7 @@
                         <!-- Single Review Area -->
                         <div class="single-room-review-area d-flex align-items-center">
                             <div class="reviwer-thumbnail">
-                                <img src="{{asset('img/bg-img/55.jpg')}}" alt="">
+                                <img src="{{environement() ? asset('img/bg-img/55.jpg') : secure_asset('img/bg-img/54.jpg')}}" alt="">
                             </div>
                             <div class="reviwer-content">
                                 <div class="reviwer-title-rating d-flex align-items-center justify-content-between">
