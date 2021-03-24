@@ -10,7 +10,7 @@
                         <div class="single-room-area d-flex align-items-center mb-50 wow fadeInUp" data-wow-delay="100ms">
                             <!-- Room Thumbnail -->
                             <div class="room-thumbnail">
-                                <img src="{{$voiture->image}}" alt="">
+                                <img src="{{ asset('storage').'/'.$voiture->image }}" alt="">
                             </div>
                             <!-- Room Content -->
                             <div class="room-content">
@@ -22,7 +22,7 @@
                                     <h6>Annee: <span>{{$voiture->annee}}</span></h6>
                                     <h6>Moteur: <span>{{$voiture->moteur}}</span></h6>
                                 </div>
-                                <a href="{{route('voiture.show',['voiture' => $voiture->id])}}" class="btn btn-info"> voir plus <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                                <a href="{{route('produit.show',['produit' => $voiture->id])}}" class="btn btn-info"> voir plus <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     @endforeach

@@ -37,7 +37,7 @@ class VoitureController extends Controller
      */
     public function store(Request $request)
     {
-        
+        dd($request);
     }
 
     /**
@@ -46,9 +46,10 @@ class VoitureController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($voiture)
+    public function show($produit)
     {
-        $voiture = Voiture::find($voiture);
+        $voiture = Voiture::find($produit);
+        
         return view('pages.produits.show',compact('voiture'));
     }
 

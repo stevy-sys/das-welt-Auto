@@ -16,7 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'CouvertureController@index')->name('couverture');
 Route::get('/accueil', 'AccueilController@index')->name('home');
 Route::get('/recherche/{recherche}', 'RechercheController@rechercheCategorie')->name('recherche.categorie');
-Route::resource('voiture', 'VoitureController');
+
+
+
+Route::resource('produit', 'VoitureController');
+
+
+
+
 Route::get('/contact', 'ContactController@index')->name('contact');
 Route::post('/comentaire', 'CommentaireController@store')->name('commentaire.store');
 //Route::ressources('/categorie', 'CategorieController');
@@ -27,3 +34,17 @@ Route::get('/home', 'HomeController@index')->name('dashboard');
 Route::get('/home/message', 'HomeController@message')->name('message.user');
 Route::get('/home/favoris', 'HomeController@favoris')->name('favoris.user');
 Route::get('/home/commentaire', 'HomeController@commentaire')->name('commentaire.user');
+
+
+/**admin route */
+
+route::namespace('Admin')->group(function (){
+    Route::get('/admin/login', 'Auth\LoginController@showLoginForm')->name('admin.login');
+    Route::post('/admin/login', 'Auth\LoginController@login');
+    //////
+    Route::get('/admin/home', 'AdminController@index')->name('admin.home');
+    Route::resource('/admin/voiture', 'VoitureController');
+    Route::resource('/admin/message', 'MessageController');
+    //Route::resource('/admin/adala', 'AdalaController');
+    //////
+});
