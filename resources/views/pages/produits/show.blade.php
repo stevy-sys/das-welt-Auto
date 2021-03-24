@@ -14,7 +14,7 @@
                                 <div class="carousel-inner">
                                     @foreach ($voiture->photoVoitures as $photos)
                                         <div class="carousel-item {{($photos->id == 1) ? 'active' : ''}}">
-                                            <img src="{{asset($photos->photo)}}" class="d-block w-100" alt="">
+                                            <img src="{{ asset('sorage').'/'.$photos->photo }}" class="d-block w-100" alt="">
                                         </div>
                                     @endforeach
                                 </div>
@@ -22,7 +22,7 @@
                                 <ol class="carousel-indicators">
                                     @foreach ($voiture->photoVoitures as $photos)
                                         <li data-target="#room-thumbnail--slide" data-slide-to="{{$photos->id - 1}}" class="{{($photos->id == 1) ? 'active' : ''}}">
-                                            <img src="{{asset($photos->photo)}}" class="d-block w-100" alt="">
+                                            <img src="{{ asset('sorage').'/'.$photos->photo }}" class="d-block w-100" alt="">
                                         </li>
                                     @endforeach
                                 </ol>
