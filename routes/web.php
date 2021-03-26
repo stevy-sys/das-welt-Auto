@@ -47,7 +47,9 @@ route::namespace('Admin')->group(function (){
     //////
     Route::get('/admin/home', 'AdminController@index')->name('admin.home');
     Route::resource('/admin/voiture', 'VoitureController');
-    Route::resource('/admin/message', 'MessageController');
+    //Route::resource('/admin/message', 'MessageController');
+    Route::resource('/admin/couverture', 'CouvertureController');
+    //Route::resource('/admin/commentaire', 'CommentaireController');
     //Route::resource('/admin/adala', 'AdalaController');
     //////
 });

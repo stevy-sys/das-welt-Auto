@@ -8,7 +8,7 @@
 
             @foreach ($couvertures as $couverture)
                  <!-- Single Welcome Slide -->
-                    <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url({{$couverture->image}});" data-img-url='{{$couverture->image}}'>
+                    <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url({{asset('storage').'/'.$couverture->image}});" data-img-url='{{asset('storage').'/'.$couverture->image}}'>
                         <!-- Welcome Content -->
                         <div class="welcome-content h-100">
                             <div class="container h-100">
