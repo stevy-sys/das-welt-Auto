@@ -20,22 +20,15 @@ class VoitureController extends Controller
         return view('admin.content.voiture.index',compact('voitures'));
     }
 
-    public function show(int $blog)
+    public function edit($id)
     {
-        $article = Blog::find($blog)->first();
-        return view('admin.nav.blog.show',compact('article'));
+        $voiture = Voiture::find(intval($id));
+        return view('admin.content.voiture.edit',compact('voiture'));
     }
 
-    public function create(Request $voiture)
+    public function create()//Request $voiture)
     {
-        if($voiture){
-            $voiture = Voiture::find($voiture)->first();
-            //$id = intval($voiture['id']);
-            //$voiture = Voiture::where('id',$id)->first();
-            //dd($voiture->categorie);
-            return view('admin.content.voiture.create',compact('voiture'));
-        }
-        return view('admin.content.nav.blog.add');
+        return view('admin.content.voiture.add');
     }
 
     public function update(Voiture $voiture , Request $request)
@@ -57,9 +50,23 @@ class VoitureController extends Controller
         $data['categorie_id'] = intval($data['categorie_id']);
         $data['annee'] = intval($data['annee']);
         $data['place'] = intval($data['place']);
-        
+
+
+        $avant = $voiture->image;
+        $touteVoitures = $voiture->photoVoitures ;
         $voiture->update($data);
         $this->storeImage($voiture);
+        
+
+        unlink('storage/'.$avant);
+        usleep(250000);
+        clearstatcache();
+        
+        foreach ($touteVoitures as $voiture) {
+            unlink('storage/'.$voiture->photo);
+            usleep(250000);
+            clearstatcache();
+        }
 
         if ($request['image0']) {
             $request['photo'] = $request['image0'] ;
@@ -100,25 +107,88 @@ class VoitureController extends Controller
         return redirect()->route('voiture.index');
     }
 
-    public function store(Request $request)
+    public function store(Request $request,Voiture $voiture)
     {
+        
         $data = $request->validate([
-            'titre' => "required",
-            'title' => "required",
-            'date' => "required",
-            'content' => "required",
-            'animate' => "required",
-            'img' => "required|image|max:5000"
+            'categorie_id' => "required",
+            'nom' => "required",
+            'type' => "required",
+            'vitesse' => "required",
+            'place' => "required",
+            'image' => "image|required|max:5000",
+            'annee' => "required",
+            'moteur' => "required",
+            'description' => "required"
         ]);
-        $blog = Blog::create($data);
-        $this->storeImage($blog);
-        return redirect()->route('blog.index');
+
+        $voiture = Voiture::create($data);
+        $id = intval($voiture->id) ;
+        $this->storeImage($voiture);
+
+        if ($request['image0']) {
+            $request['photo'] = $request['image0'] ;
+            $data = $request->validate([
+                'photo' => "image|max:5000",
+            ]);
+            $data['voiture_id'] = $id;
+            $voiture = PhotoVoiture::create($data);
+            $this->storeImageVoiture($voiture);
+        }
+
+        if ($request['image1']) {
+            $request['photo'] = $request['image1'] ;
+            $data = $request->validate([
+                'photo' => "image|max:5000",
+            ]);
+            $data['voiture_id'] = $id;
+            $voiture = PhotoVoiture::create($data);
+            $this->storeImageVoiture($voiture);
+        }
+
+        if ($request['image2']) {
+            $request['photo'] = $request['image2'] ;
+            $data = $request->validate([
+                'photo' => "image|max:5000",
+            ]);
+            $data['voiture_id'] = $id;
+            $voiture = PhotoVoiture::create($data);
+            $this->storeImageVoiture($voiture);
+        }
+
+        if ($request['image3']) {
+            $request['photo'] = $request['image3'] ;
+            $data = $request->validate([
+                'photo' => "image|max:5000",
+            ]);
+            $data['voiture_id'] = $id;
+            $voiture = PhotoVoiture::create($data);
+            $this->storeImageVoiture($voiture);
+        }
+
+
+        return redirect()->route('voiture.index');
     }
 
-    public function destroy(Blog $blog)
+    public function destroy(Voiture $voiture)
     {
-        $blog->delete();
-        return redirect()->route('blog.index');
+        
+        if($voiture){
+            $avant = $voiture->image;
+            $touteVoitures = $voiture->photoVoitures ;
+
+            unlink('storage/'.$avant);
+            usleep(250000);
+            clearstatcache();
+        
+            foreach ($touteVoitures as $voiture) {
+                unlink('storage/'.$voiture->photo);
+                usleep(250000);
+                clearstatcache();
+            }
+            $voiture->delete();
+        }
+        return redirect()->route('voiture.index');
     }
 
     private function storeImage(Voiture $voiture)
@@ -132,7 +202,7 @@ class VoitureController extends Controller
 
     private function storeImageVoiture(PhotoVoiture $voiture)
     {
-       if ($voiture->photo) {
+        if ($voiture->photo) {
            $voiture->update([
                'photo' => $voiture->photo->store('photoVoiture','public')
            ]);

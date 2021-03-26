@@ -13,19 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'CouvertureController@index')->name('couverture');
-Route::get('/accueil', 'AccueilController@index')->name('home');
-Route::get('/recherche/{recherche}', 'RechercheController@rechercheCategorie')->name('recherche.categorie');
+Route::get('/', 'IndexController@couverture')->name('couverture');
+Route::get('/accueil', 'IndexController@accueil')->name('home');
+Route::get('/produit', 'IndexController@produit')->name('produit');
+Route::get('/produit/{produit}', 'IndexController@showProduit')->name('produit.show');
+Route::post('/produit/{produit}/commentaire', 'IndexController@commenter')->name('commentaire.store');
+Route::get('/contact', 'IndexController@contact')->name('contact');
+Route::get('/recherche/{recherche}', 'IndexController@rechercheCategorie')->name('recherche.categorie');
 
 
 
-Route::resource('produit', 'VoitureController');
 
 
+//Route::resource('produit', 'VoitureController');
 
 
-Route::get('/contact', 'ContactController@index')->name('contact');
-Route::post('/comentaire', 'CommentaireController@store')->name('commentaire.store');
+//Route::post('/comentaire', 'CommentaireController@store')->name('commentaire.store');
 //Route::ressources('/categorie', 'CategorieController');
 
 Auth::routes();

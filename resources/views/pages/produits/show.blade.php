@@ -12,19 +12,18 @@
                         <div class="room-thumbnail-slides mb-50">
                             <div id="room-thumbnail--slide" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">
-                                    @foreach ($voiture->photoVoitures as $photos)
-                                        <div class="carousel-item {{($photos->id == 1) ? 'active' : ''}}">
-                                            <img src="{{ asset('sorage').'/'.$photos->photo }}" class="d-block w-100" alt="">
+                                    @for ($i = 0; $i < count($voiture->photoVoitures); $i++)
+                                        <div class="carousel-item {{$i == 0 ? 'active' : ''}} ">
+                                            <img src="{{ asset('storage').'/'.$voiture->photoVoitures[$i]->photo }}" class="d-block w-100" alt="">
                                         </div>
-                                    @endforeach
+                                    @endfor
                                 </div>
-
                                 <ol class="carousel-indicators">
-                                    @foreach ($voiture->photoVoitures as $photos)
-                                        <li data-target="#room-thumbnail--slide" data-slide-to="{{$photos->id - 1}}" class="{{($photos->id == 1) ? 'active' : ''}}">
-                                            <img src="{{ asset('sorage').'/'.$photos->photo }}" class="d-block w-100" alt="">
+                                    @for ($i = 0; $i < count($voiture->photoVoitures); $i++)
+                                        <li data-target="#room-thumbnail--slide" data-slide-to="{{$i}}" class="{{$i == 0 ? 'active' : ''}}">
+                                            <img src="{{ asset('storage').'/'.$voiture->photoVoitures[$i]->photo }}" class="d-block w-100" alt="">
                                         </li>
-                                    @endforeach
+                                    @endfor
                                 </ol>
                             </div>
                         </div>
@@ -38,7 +37,7 @@
                     <div class="room-review-area mb-100">
                         <h4>Room Review</h4>
                         @auth
-                            <form method="post" action="{{ route('commentaire.store',['voiture_id' => $voiture->id]) }}" class="mb-5">
+                            <form method="post" action="{{ route('commentaire.store',['produit' => $voiture->id]) }}" class="mb-5">
                                 @csrf
                                 <div class="mb-3">
                                     <label for="exampleFormControlTextarea1" class="form-label">Votre commentaire</label>

@@ -95,7 +95,7 @@
                                 <div id="nav" class="classynav">
                                     <ul>
                                         <li class="active"><a href="{{route('home')}}"> <i class="fa fa-home"/></i> Accueil</a></li>
-                                        <li><a href="{{route('produit.index')}}"><i class="fa fa-car"/></i> Voiture</a></li>
+                                        <li><a href="{{route('produit')}}"><i class="fa fa-car"/></i> Voiture</a></li>
                                         <li><a href="{{route('contact')}}"><i class="fa fa-phone"/></i> Contact</a></li>
                                         <li><a href="#"><i class="fa fa-list"/></i> Categorie de voiture <i class="fa fa-angle-down"></i></a>
                                             <ul class="dropdown">
