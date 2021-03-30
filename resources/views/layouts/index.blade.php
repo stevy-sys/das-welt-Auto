@@ -50,7 +50,7 @@
                         <div class="col-8">
                             <div class="top-header-content">
                                 <a href="#"><i class="fa fa-phone"></i> <span>(123) 456-789-1230</span></a>
-                                <a href="#"><i class="fab fa-mailchimp"></i> <span>info.colorlib@gmail.com</span></a>
+                                <a href="#"><i class="fab fa-mailchimp"></i> <span>votre.mail@gmail.com</span></a>
                             </div>
                         </div>
 
@@ -188,10 +188,9 @@
 
                                 <!-- Footer Nav -->
                                 <ul class="footer-nav">
-                                    <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> About Us</a></li>
-                                    <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Our Room</a></li>
-                                    <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Career</a></li>
-                                    <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> FAQs</a></li>
+                                    <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Accueil</a></li>
+                                    <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Voiture</a></li>
+                                    <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> contact</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -242,5 +241,4 @@
         <!-- Footer Area End -->
         <script src="{{ environement() ? asset('js/app.js') : secure_asset('js/app.js')}}"></script>
     </body>
-
 </html>

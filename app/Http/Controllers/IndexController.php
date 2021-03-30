@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Models\Message;
 use App\Http\Models\Voiture;
 use Illuminate\Http\Request;
 use App\Http\Models\Categorie;
@@ -31,7 +32,7 @@ class IndexController extends Controller
 
     public function produit()
     {
-        $voitures = Voiture::paginate(5);
+        $voitures = Voiture::paginate(3);
         return view('pages.produits.index',compact('voitures'));
     }
 
@@ -58,5 +59,17 @@ class IndexController extends Controller
         
         Commentaire::create($data);
         return redirect()->route('produit.show',['produit' => $data['voiture_id']]);
+    }
+
+    public function sendMessage(Request $request)
+    {
+        $data = $request->validate([
+            'name' => "required",
+            'email' => "required|email",
+            'message' => "required"
+        ]);
+
+        Message::create($data);
+        return redirect()->route('contact');
     }
 }

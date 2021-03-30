@@ -19,6 +19,7 @@ Route::get('/produit', 'IndexController@produit')->name('produit');
 Route::get('/produit/{produit}', 'IndexController@showProduit')->name('produit.show');
 Route::post('/produit/{produit}/commentaire', 'IndexController@commenter')->name('commentaire.store');
 Route::get('/contact', 'IndexController@contact')->name('contact');
+Route::post('/contact', 'IndexController@sendMessage')->name('contact.send');
 Route::get('/recherche/{recherche}', 'IndexController@rechercheCategorie')->name('recherche.categorie');
 
 
@@ -47,7 +48,7 @@ route::namespace('Admin')->group(function (){
     //////
     Route::get('/admin/home', 'AdminController@index')->name('admin.home');
     Route::resource('/admin/voiture', 'VoitureController');
-    //Route::resource('/admin/message', 'MessageController');
+    Route::resource('/admin/message', 'MessageController');
     Route::resource('/admin/couverture', 'CouvertureController');
     //Route::resource('/admin/commentaire', 'CommentaireController');
     //Route::resource('/admin/adala', 'AdalaController');
