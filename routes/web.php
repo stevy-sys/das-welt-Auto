@@ -22,7 +22,9 @@ Route::get('/contact', 'IndexController@contact')->name('contact');
 Route::post('/contact', 'IndexController@sendMessage')->name('contact.send');
 Route::get('/recherche/{recherche}', 'IndexController@rechercheCategorie')->name('recherche.categorie');
 
-
+Route::get('/linkstorage', function(){
+    Artisan::call('storage:link');
+});
 
 
 
